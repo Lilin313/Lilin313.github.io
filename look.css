@@ -1,5 +1,5 @@
 body{
-    background-image: url('image/background.png');
+    background-image: url('image/background.png.png');
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
@@ -47,17 +47,6 @@ font-weight: 500;
 font-style: italic;
 }
 
-.container{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 32vh;
-}
-
-.container img{
-    max-width: 30%;
-    max-height: 30vh;
-}
 
 .third-paragraph{
     color: #D8C7B5;
