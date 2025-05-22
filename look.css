@@ -3,20 +3,27 @@ img,video{
     display: block;
 }
 
-div.video{
-    width: 400px;
-    bottom: 20px;
-    right: 20px;
-    z-index: 9999;
+.floating-video{
     position: fixed;
+    top: 20px;
+    right: 20px;
+    width: 300px;
+    z-index: 9999;
+    background-color: #000;
+    border-radius: 8px;
+}
+
+.floating-video video{
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
 }
 
 body{
-    background-image: url('image/background.png.png');
+    background-image: url('image/backgroundi.jpeg');
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
-    backdrop-filter: blur(4px);
     margin: 0;
 }
 
