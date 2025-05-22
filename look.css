@@ -1,3 +1,8 @@
+img,video{
+    width: 100%;
+    display: block;
+}
+
 body{
     background-image: url('image/background.png.png');
     background-size: cover;
@@ -149,3 +154,9 @@ font-weight: 500;
 font-style: italic;
 }
 
+div.video{
+    width: 400px;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+}
