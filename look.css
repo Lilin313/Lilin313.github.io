@@ -185,6 +185,23 @@ font-style: italic;
     to{transform: scale(1);}
     }
 
+#wood-background{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #e6c39bbc;
+    z-index: -3;
+    opacity: 0;
+    transition: opacity 1s ease;
+    pointer-events: none;
+}
+
+#wood-background.visible{
+    opacity: 1;
+}
+
 div.box-fourth{
     border-radius: 16px;
     color: #f5f5f5;
@@ -195,29 +212,35 @@ div.box-fourth{
     padding: 15px;
     width: fit-content;
     overflow: hidden;
-    white-space: nowrap;
     font-family: "poppins", sans-serif;
 font-weight: 500;
 font-style: italic;
 }
 
-div.box-fourth{
-    animation: revealWords 4s steps(4) infinite;
+.word{
+    display: inline-block;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.5s ease;
+    margin-right: 10px;
 }
 
-@keyframes revealWords{
-    0%{
-        width: 0;
-    }
-    20%{
-        width: 20%;
-    }
-    40%{
-        width: 40;
-    }
-    60%{
-        width: 60%;
-    }
+.word.visible{
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.popup-container{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    pointer-events: none;
+    z-index: 9999;
 }
 
 .fifthly-paragraph{
@@ -225,13 +248,22 @@ div.box-fourth{
     background-color:#cc4a4a;
     text-shadow: 2px 2px 2px #29394b;
     border-radius: 10px;
-    margin-left: 200px;
-    margin-right: 200px;
+    padding: 20px 40px;
     text-align: center;
     font-size: xx-large;
+    opacity: 0;
+    transform: scale(0.5);
+    transition: all 0.3s ease;
+    position: relative;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
     font-family: "poppins", sans-serif;
 font-weight: 500;
 font-style: italic;
+}
+
+.fifthly-paragraph.popup-active{
+    opacity: 1;
+    transform: scale(1);
 }
 
 .sixth-paragraph{
@@ -246,6 +278,11 @@ font-style: italic;
     font-family: "poppins", sans-serif;
 font-weight: 500;
 font-style: italic;
+}
+
+.sixth-paragraph.defocused{
+    filter: blur(3px);
+    transition: filter 1s ease;
 }
 
 .sixth-paragraph:hover{
@@ -263,28 +300,17 @@ font-style: italic;
     font-size: 18px;
     display: inline-block;
     opacity: 0;
+    transform: translateY(10px);
+    transition: all 2s ease;
     animation: fadeInOut 5s infinite;
     font-family: "poppins", sans-serif;
 font-weight: 500;
 font-style: italic;
 }
 
-@keyframes fadeInOut{
-    0%{
-        opacity: 0;
-        transform: translateY(4px);
-    }
-    20%{
-        opacity: 1;
-        transform: translateY(0);
-    }
-    85%{
-        opacity: 1;
-    }
-    100%{
-        opacity: 0;
-        transform: translateY(1px);
-    }
+.seventh-paragraph.visible{
+    opacity: 1;
+    transform: translateY(0);
 }
 
 .eighth-paragraph{
@@ -298,24 +324,18 @@ font-style: italic;
     font-size: 16px;
     border-radius: 8px;
     position: relative;
-    animation: slideRight 10s infinite;
     display: inline-block;
+    transform: translateX(-100%);
+    transition: transform 10s ease-in-out;
+    left: 20%;
     font-family: "poppins", sans-serif;
 font-weight: 500;
 font-style: italic;
 }
 
-@keyframes slideRight{
-    0%{
-        transform: translateX(-100%);
-    }
-    30%{
-        transform: translateX(calc(100vw-420px-30px));
-    }
-    100%{
-        transform: translateX(calc(100vw-420px-30px));
-        left: 0;
-    }
+.eighth-paragraph.slide-active{
+    transform: 
+    translateX(0);
 }
 
 body{
@@ -331,16 +351,20 @@ div.box-ninth{
     margin-left: 700px;
     margin-right: 200px;
     text-align: center;
-    font: size 16px;
+    font-size: 16px;
     display: inline-block;
-    animation: blinkBackground 1.5s infinite;
-    font-family: "poppins", sans-serif;
+    animation: none
+font-family: "poppins", sans-serif;
 font-weight: 500;
 font-style: italic;
 }
 
+div.box-ninth.blink-active{
+    animation: blinkBackground 1.5s infinite;
+}
+
 @keyframes blinkBackground{
-    0%, 100%{
+    0%,100%{
         background-color: #ffff00;
         box-shadow: 0 0 10px #ffff00;
     }
@@ -361,20 +385,9 @@ font-style: italic;
 
 .tenth-paragraph .highlight{
     display: inline-block;
-    animation: moveUp 7s infinite;
+    transition: transform 0.5s ease;
 }
 
-@keyframes moveUp{
-    0%, 10%{
-        transform: translateY(0);
-    }
-    20%{
-        transform: translateY(-30px);
-    }
-    28.57%{
-        transform: translateY(-30px);
-    }
-    100%{
-        transform: translateY(0);
-    }
+.tenth-paragraph .highlight.rise-up{
+    transform: translateY(-30px);
 }
