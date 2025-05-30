@@ -124,6 +124,9 @@ p{
     margin-right: 550px;
     line-height: 1.2;
     letter-spacing: 0.2px;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    hyphens: auto;
     font-family: "barlow-condensed", sans-serif;
 font-weight: 100;
 font-style: normal;
